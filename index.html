@@ -1,0 +1,921 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SloRest</title>
+<script src="js/jquery-1.12.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.bxslider.min.js"></script>
+<script src="js/sitemaster.js"></script>
+<script src="js/custom-animations.js"></script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgccMwQqsHWzzrE4kTPffvjIeJjpOmabk&callback=initMap">
+</script>
+<script>function initMap() {
+        var uluru = {lat: 46.0593697, lng: 14.5061324};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: uluru,
+          styles: [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.country",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#8a8a8a"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#bdbdbd"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural.terrain",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#9d9d9d"
+      },
+      {
+        "saturation": -15
+      },
+      {
+        "lightness": 60
+      },
+      {
+        "weight": 8
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ffffff"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dadada"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#c9c9c9"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  }
+]
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }</script>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" href="css/jquery.bxslider.css">
+</head>
+
+<body>
+  <header id="siteHead" class="large">
+     <div class="navigation">
+       <div class="container">
+         <nav id="siteNav">
+          <img alt="logo" class="logo" src="img/logo.png">
+          <button class="c-hamburger c-hamburger--htx" id="PullNav"><span>navigacija</span></button>
+           <ul class="siteNavigation">
+             <li class="item">
+               <a class="item-link" href="#" target="">O PODJETJU</a>
+             </li>
+
+             <li class="item haschild">
+              <a class="item-link" target="" href="#">DEJAVNOST</a>
+              <div class="nsdm-more rotate-second second">
+                <i class="icon-down-open"></i>
+              </div>
+              <ul class="nsdm-menu second-open">
+                <div class="row">
+                  <div class="col-xs-6"><li><a href="#">Prehrana med delom</a></li></div>
+                  <div class="col-xs-6"><li><a href="#">Študentska prehrana</a></li></div>
+                  <div class="col-xs-6"><li><a href="#">Dijaška prehrana</a></li></div>
+                  <div class="col-xs-6"><li><a href="#">Osnovnošolska prehrana</a></li></div>
+                  <div class="col-xs-6"><li><a href="#">Prehrana vrtcih</a></li></div>
+                  <div class="col-xs-6"><li><a href="#">Bolnišnična prehrana</a></li></div>
+                  <div class="col-xs-6"><li><a href="#">Prehrana starostnikov</a></li></div>
+                  <div class="col-xs-6"><li><a href="#">Prodajni avtomati</a></li></div>
+                  <div class="col-xs-6"><li><a href="#">Prehrana športnikov</a></li></div>
+                  <div class="col-xs-6"><li><a href="#">Prehrana v domovih in centrih</a></li></div>
+                </div>
+              </ul>
+             </li>
+
+             <li class="item haschild">
+              <a class="item-link" href="#" target="">RESTAVRACIJE</a>
+              <div class="nsdm-more rotate-third third">
+                <i class="icon-down-open"></i>
+              </div>
+               <ul class="nsdm-menu third-open">
+                 <div class="row">
+                 <div class="col-xs-6"><li><a href="#">Restavracije 123</a></li></div>
+                 <div class="col-xs-6"><li><a href="#">SLOREST restavracije</a></li></div>
+               </div>
+               </ul>
+             </li>
+
+             <li class="item">
+               <a class="item-link" href="#" target="">CATERING</a>
+             </li>
+
+             <li class="item">
+               <a class="item-link" href="#" target="">KARIERA</a>
+             </li>
+            </div>
+           </ul>
+         </nav>
+     </div>
+   </header>
+
+  <section id="siteSlider1">
+    <ul class="bxslider">
+
+      <li class=" parralax one">
+        <div class="ss1-item">
+          <div class="ss1-item-heading">
+            <div class="container">
+              <h2>Študentska kosila v 16. restavracijah</h2>
+              <h3>
+                Vsako 5. študentsko kosilo v nekaterih
+                restavracijah 123 ali Slorest brez doplačila.
+              </h3>
+              <div class="ss1-button">
+                <a href="#">Preberi več</a>
+              </div>
+              <div class="ss1-arrow">
+                <img src="img/arrow.png"></img>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class=" parralax two">
+        <div class="ss1-item">
+          <div class="ss1-item-heading">
+            <div class="container">
+              <h2>Študentska kosila v 16. restavracijah</h2>
+              <h3>
+                Vsako 5. študentsko kosilo v nekaterih
+                restavracijah 123 ali Slorest brez doplačila.
+              </h3>
+              <div class="ss1-button">
+                <a href="#">Preberi več</a>
+              </div>
+              <div class="ss1-arrow">
+                <img src="img/arrow.png"></img>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="slorest-opis">
+    <div class="container">
+      <div class="so-item">
+        <div class="so-left">
+          <h2>SLOREST</h2>
+          <p>
+            Slorest je največje podjetje v slovenski lasti na področju gostinstva.
+            Naša poglavitna dejavnost je gostinstvo na delovnem mestu.
+            Prehrana na delovnem mestu je namreč eden izmed osnovnih pogojev
+            za zadovoljstvo in motiviranost delavcev, ter s tem za uspešno
+            opravljanje dela, zato mora biti zmeraj premišljeno načrtovana
+            in kakovostna, ter raznolika.
+          </p>
+            <div class="so-button">
+              <a href="#">
+                Preberi več
+              </a>
+            </div>
+        </div>
+
+        <div class="so-right">
+          <img src="img/pribor.png" class="img-responsive hidden-xs hidden-sm pribor-image"></img>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="siteSlider2">
+    <div class="parralax2">
+    </div>
+  </section>
+
+  <section id="dejavnosti-storitve">
+    <div class="container">
+      <div class="ds-top">
+        <h2>DEJAVNOSTI IN STORITVE</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin volutpat ultricies ante,
+          in sagittis neque bibendum sit amet. Aeneaan pulvinar arcu a volutpat commodo.
+          Mauris accumsan arcu vel orci congue, nec aliquam leo suscipit. a
+        </p>
+      </div>
+
+      <div class="ds-bottom">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds1.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Prehrana med delom</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds2.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Študentska prehrana</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds3.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Dijaška prehrana</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds4.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Prehrana v šolah</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds5.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Prehrana v vrtcih</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds6.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Bolnišnična prehrana</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds7.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Prehrana starostnikov</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds8.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Prehrana v domovih</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds9.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Prehrana športnikov</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds10.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Prodajni avtomati</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds11.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Catering</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-lg-4">
+            <a href="#">
+              <div class="ds-item">
+                <div class="ds-left">
+                  <img src="img/ds12.jpg"></img>
+                </div>
+                <div class="ds-right">
+                  <h3>Restavracije</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, cons
+                    etur adipiscing elit. Praesent bibe
+                    libero sem, ornare lorem ultricies.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="siteSlider3">
+    <div class="parralax3">
+    </div>
+  </section>
+
+  <section id="galerija">
+    <div class="container">
+      <div class="g-upper">
+        <h2>GALERIJA</h2>
+          <div class="g-upper-sub">
+            <div class="row">
+              <div class="col-xs-12 col-sm-4 col-lg-4">
+                <h3><a href="#">Restavracija</a></h3>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-lg-4">
+                <h3><a href="#">Catering</a></h3>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-lg-4">
+                <h3><a href="#">Hrana</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="g-bottom">
+        <div class="row">
+          <div class="col-xs-6 col-sm-4 col-lg-4 column">
+            <img src="img/galerija1.jpg" class="img-responsive">
+          </div>
+
+          <div class="col-xs-6 col-sm-4 col-lg-4 column">
+            <img src="img/galerija2.jpg" class="img-responsive">
+          </div>
+
+          <div class="col-xs-6 col-sm-4 col-lg-4 column">
+            <img src="img/galerija3.jpg" class="img-responsive">
+          </div>
+
+          <div class="col-xs-6 col-sm-4 col-lg-4 column">
+            <img src="img/galerija4.jpg" class="img-responsive">
+          </div>
+
+          <div class="col-xs-6 col-sm-4 col-lg-4 column">
+            <img src="img/galerija5.jpg" class="img-responsive">
+          </div>
+
+          <div class="col-xs-6 col-sm-4 col-lg-4 column">
+            <img src="img/galerija6.jpg" class="img-responsive">
+          </div>
+        </div>
+
+        <div id="myModal">
+          <div class="close icon-cancel"></div>
+          <div class="modal-content">
+            <div class="mySlides">
+              <img src="img/galerija1.jpg" class="img-responsive"></img>
+            </div>
+            <div class="mySlides">
+              <img src="img/galerija2.jpg" class="img-responsive"></img>
+            </div>
+            <div class="mySlides">
+              <img src="img/galerija3.jpg" class="img-responsive"></img>
+            </div>
+            <div class="mySlides">
+              <img src="img/galerija4.jpg" class="img-responsive"></img>
+            </div>
+            <div class="mySlides">
+              <img src="img/galerija5.jpg" class="img-responsive"></img>
+            </div>
+            <div class="mySlides">
+              <img src="img/galerija6.jpg" class="img-responsive"></img>
+            </div>
+            <div class="pagers">
+              <a href="#galerija" class="prev icon-left-open-big"></a>
+              <a href="#galerija" class="next icon-right-open-big"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="novice-obvestila">
+    <div class="container">
+      <h2>
+        NOVICE IN OBVESTILA
+      </h2>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3 first">
+          <a href="#">
+            <div class="no-item">
+              <div class="no-top">
+                <img src="img/no1.jpg" class="img-responsive">
+              </div>
+              <div class="no-bottom">
+                <h3 class="no-bottom-heading">Kako pripraviti polnjene paprike?</h3>
+                <p>
+                  Lorem ipsum dolor sit amet,
+                  consectetadipiscing elit. Aliquam
+                  non suscipitin facilisis metus ve...
+                </p>
+                <div class="no-button">
+                  <a href="#">Preberi več</a>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <a href="#">
+            <div class="no-item">
+              <div class="no-top">
+                <img src="img/no2.jpg" class="img-responsive">
+              </div>
+              <div class="no-bottom">
+                <h3 class="no-bottom-heading">Do okusnega obroka samo v 30 minutah</h3>
+                <p>
+                  Lorem ipsum dolor sit amet,
+                  consectetadipiscing elit. Aliquam
+                  non suscipitin facilisis metus ve...
+                </p>
+                <div class="no-button">
+                  <a href="#">Preberi več</a>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <a href="#">
+            <div class="no-item">
+              <div class="no-top">
+                <img src="img/no3.jpg" class="img-responsive">
+              </div>
+              <div class="no-bottom">
+                <h3 class="no-bottom-heading">Odprli smo novo SLOREST restavracijo v Kopru</h3>
+                <p>
+                  Lorem ipsum dolor sit amet,
+                  consectetadipiscing elit. Aliquam
+                  non suscipitin facilisis metus ve...
+                </p>
+                <div class="no-button">
+                  <a href="#">Preberi več</a>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3 last">
+          <a href="#">
+            <div class="no-item">
+              <div class="no-top">
+                <img src="img/no4.jpg" class="img-responsive">
+              </div>
+              <div class="no-bottom">
+                <h3 class="no-bottom-heading">Kako pripraviti bograč v kotlu?</h3>
+                <p>
+                  Lorem ipsum dolor sit amet,
+                  consectetadipiscing elit. Aliquam
+                  non suscipitin facilisis metus ve...
+                </p>
+                <div class="no-button">
+                  <a href="#">Preberi več</a>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="no-button-bottom">
+        <a href="#">Arhiv novic</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="map">
+    <!--img src="img/map.jpg" class="img-responsive"></img-->
+  </section>
+
+  <section id="footer">
+    <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="ft-item">
+                            <div class="ft-item-title">
+                                <h3>Kontaktirajte nas</h3>
+                            </div>
+                            <div class="ft-item-content">
+                                <ul>
+                                    <li>Slorest d.o.o</li>
+                                    <li>Verovškova 55a</li>
+                                    <li>1000 Ljubljana</li>
+                                </ul>
+                                <ul>
+                                    <li><i class="icon-phone"></i>386(0)1 300 42 40</li>
+                                    <li><i class="icon-phone"></i>386(0)1 300 42 60</li>
+                                    <li><i class="icon-print"></i>02 878 32 15</li>
+                                    <li><i class="icon-mail"></i><a href="mailto:rac.vrtec.dravograd@guest.arnes.si">info@slorest.si</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="ft-item">
+                            <div class="ft-item-title">
+                                <a href="#"><h3>Dejavnosti</h3></a>
+                            </div>
+                            <div class="ft-item-content">
+                                <ul>
+                                    <li><a href="#">Prehrana med delom</a></li>
+                                    <li><a href="#">študentska prehrana</a></li>
+                                    <li><a href="#">Dijaška prehrana</a></li>
+                                    <li><a href="#">Osnovnošolska prehrana</a></li>
+                                    <li><a href="#">Prehrana vrtcih</a></li>
+                                    <li><a href="#">Bolnišnična prehrana</a></li>
+                                    <li><a href="#">Prehrana starostnikov</a></li>
+                                    <li><a href="#">Prehrana v domovih in centrih</a></li>
+                                    <li><a href="#">Prehrana športnikov</a></li>
+                                    <li><a href="#">Prodajni avtomati</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 clear">
+                        <div class="ft-item">
+                            <div class="ft-item-title">
+                                <a href="#"><h3>Restavracije 123</h3></a>
+                            </div>
+                            <div class="ft-item-content">
+                              <ul>
+                                <li><a href="#">123 MC Šiška</a></li>
+                                <li><a href="#">123 MC Kranj</a></li>
+                                <li><a href="#">123 MC Nova Gorica</a></li>
+                                <li><a href="#">123 MC Maribor</a></li>
+                                <li><a href="#">123 M poslovna stavba</a></li>
+                                <li><a href="#">123 FRI in FKKT</a></li>
+                                <li><a href="#">123 Delo</a></li>
+                                <li><a href="#">123 DSU</a></li>
+                                <li><a href="#">123 Mega center 2</a></li>
+                                <li><a href="#">123 PEF</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="ft-item">
+                            <div class="ft-item-title">
+                                <a href="#"><h3>SLOREST restavracije</h3></a>
+                            </div>
+                            <div class="ft-item-content">
+                                <ul>
+                                    <li><a href="#">Restavracije Slorest Podskrajnik</a></li>
+                                    <li><a href="#">Restavracije Slorest Koper</a></li>
+                                    <li><a href="#">Restavracije Slorest Ljubečna</a></li>
+                                    <li><a href="#">Restavracije Slorest Škofja Loka</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ft-arrow-up">
+                  <a class="up">
+                    <img src="img/arrow-bottom.jpg"></img>
+                  </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="fb-left">
+                  © Slorest 2017 - vse pravice pridržane
+                </div>
+                <div class="fb-right">
+                    <a href="#">Izjava o zasebnosti</a> | <a href="#">Kazalo strani</a> | <a href="#">Prijava</a> | <a href="#">Izvedba: Skupina stroka.si</a>
+                </div>
+            </div>
+        </div>
+  </section>
+
+</body>
+</html>
